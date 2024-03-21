@@ -25,7 +25,7 @@ export default function Form() {
             return({
                 // previous state ke rkhte hue new data copy krte hai
                 ...prevState,
-                [name] : type === 'checkbox' ? checked : value
+                [name] : type === 'checkbox' ? checked : value// agr type == checkbox hai tho check (true/false) nhi tho value ka data 
             })
         });
     }
@@ -46,6 +46,104 @@ export default function Form() {
     action="" 
     onSubmit={submitHandler}
     className="md:w-1/2 md:max-w-[1000px] rounded-md p-[30px] mx-auto flex flex-col gap-2 shadow-md">
+        {/* by mail - checkbox */}
+        <div className='mb-4'>
+            {/* fieldset and legend */}
+            <label className='font-medium text-sm'>By Email</label>
+
+            <div className='flex items-start gap-4 mt-2'>
+                <div>
+                    <input 
+                    type="checkbox" 
+                    id='comments'
+                    name='comments'
+                    onChange={inputChangeHandler}
+                    checked={formData.comments}// kyuki value change ho rhi hai iss liye use kr rhe hai, EX: a, am, ami, amit
+                    className='w-4 h-4 mt-[6px]'
+                    />
+                </div>
+                <div>
+                    <label htmlFor="comments"  className='font-medium text-sm'>Comments</label>
+                    <p className='text-sm text-gray-500'>Get notified when someones posts a comment on a posting.</p>
+                </div>
+            </div>
+
+            <div className='flex items-start gap-4 mt-2'>
+                <div>
+                    <input 
+                        type="checkbox" 
+                        id='candidates'
+                        name='candidates'
+                        onChange={inputChangeHandler}
+                        checked={formData.candidates}
+                        className='w-4 h-4 mt-[6px]'
+                        />
+                </div>
+                <div>
+                    <label htmlFor="candidates" className='font-medium text-sm'>Candidates</label>
+                    <p className='text-sm text-gray-500'>Get notified when a candidate applies for a job.</p>
+                </div>
+            </div>
+
+            <div className='flex items-start gap-4 mt-2'>
+                <div>
+                    <input 
+                    type="checkbox" 
+                    id='offers'
+                    name='offers'
+                    onChange={inputChangeHandler}
+                    checked={formData.offers}
+                    className='w-4 h-4 mt-[6px]'
+                    />
+                </div>
+                <div>
+                    <label htmlFor="offers" className='font-medium text-sm'>Offers</label>
+                    <p className='text-sm text-gray-500'>Get notified when a candidate accepts or rejects an offer.</p>
+                </div>
+            </div>
+        </div>
+
+        {/* push notification - radio */}
+        <div className='mb-4'>
+            <label className='font-medium text-sm'>Push Notifications</label>
+            <p className='text-sm text-gray-500'>These are delivered via SMS to your mobile phone.</p>
+
+            <div className='flex gap-4 items-center mt-2'>
+                <input 
+                type="radio" 
+                id='radio1'
+                name="pushNotifications" 
+                value="everything"
+                onChange={inputChangeHandler} 
+                className='w-4 h-4'
+                />
+                <label htmlFor="radio1"  className='font-medium text-sm'>Everything</label>
+            </div>
+
+            <div className='flex gap-4 items-center mt-2'>
+                <input 
+                type="radio" 
+                id='radio2'
+                name="pushNotifications" 
+                value="Same as email"
+                onChange={inputChangeHandler} 
+                className='w-4 h-4'
+                />
+                <label htmlFor="radio2"  className='font-medium text-sm'>Same as email</label>
+            </div>
+
+           <div className='flex gap-4 items-center mt-2'>
+                <input 
+                type="radio" 
+                id='radio3'
+                name="pushNotifications" 
+                value="No push notifications"
+                onChange={inputChangeHandler} 
+                className='w-4 h-4'
+                />
+                <label htmlFor="radio3"  className='font-medium text-sm'>No push notifications</label>
+            </div>
+        </div>
         {/* first name */}
         <div>
             <label 
@@ -193,104 +291,7 @@ export default function Form() {
             />
         </div>
 
-        {/* by mail - checkbox */}
-        <div className='mb-4'>
-            {/* fieldset and legend */}
-            <label className='font-medium text-sm'>By Email</label>
-
-            <div className='flex items-start gap-4 mt-2'>
-                <div>
-                    <input 
-                    type="checkbox" 
-                    id='comments'
-                    name='comments'
-                    onChange={inputChangeHandler}
-                    checked={formData.comments}
-                    className='w-4 h-4 mt-[6px]'
-                    />
-                </div>
-                <div>
-                    <label htmlFor="comments"  className='font-medium text-sm'>Comments</label>
-                    <p className='text-sm text-gray-500'>Get notified when someones posts a comment on a posting.</p>
-                </div>
-            </div>
-
-            <div className='flex items-start gap-4 mt-2'>
-                <div>
-                    <input 
-                        type="checkbox" 
-                        id='candidates'
-                        name='candidates'
-                        onChange={inputChangeHandler}
-                        checked={formData.candidates}
-                        className='w-4 h-4 mt-[6px]'
-                        />
-                </div>
-                <div>
-                    <label htmlFor="candidates" className='font-medium text-sm'>Candidates</label>
-                    <p className='text-sm text-gray-500'>Get notified when a candidate applies for a job.</p>
-                </div>
-            </div>
-
-            <div className='flex items-start gap-4 mt-2'>
-                <div>
-                    <input 
-                    type="checkbox" 
-                    id='offers'
-                    name='offers'
-                    onChange={inputChangeHandler}
-                    checked={formData.offers}
-                    className='w-4 h-4 mt-[6px]'
-                    />
-                </div>
-                <div>
-                    <label htmlFor="offers" className='font-medium text-sm'>Offers</label>
-                    <p className='text-sm text-gray-500'>Get notified when a candidate accepts or rejects an offer.</p>
-                </div>
-            </div>
-        </div>
-
-        {/* push notification - radio */}
-        <div className='mb-4'>
-            <label className='font-medium text-sm'>Push Notifications</label>
-            <p className='text-sm text-gray-500'>These are delivered via SMS to your mobile phone.</p>
-
-            <div className='flex gap-4 items-center mt-2'>
-                <input 
-                type="radio" 
-                id='radio1'
-                name="pushNotifications" 
-                value="everything"
-                onChange={inputChangeHandler} 
-                className='w-4 h-4'
-                />
-                <label htmlFor="radio1"  className='font-medium text-sm'>Everything</label>
-            </div>
-
-            <div className='flex gap-4 items-center mt-2'>
-                <input 
-                type="radio" 
-                id='radio2'
-                name="pushNotifications" 
-                value="Same as email"
-                onChange={inputChangeHandler} 
-                className='w-4 h-4'
-                />
-                <label htmlFor="radio2"  className='font-medium text-sm'>Same as email</label>
-            </div>
-
-           <div className='flex gap-4 items-center mt-2'>
-                <input 
-                type="radio" 
-                id='radio3'
-                name="pushNotifications" 
-                value="No push notifications"
-                onChange={inputChangeHandler} 
-                className='w-4 h-4'
-                />
-                <label htmlFor="radio3"  className='font-medium text-sm'>No push notifications</label>
-            </div>
-        </div>
+        
         
         {/* submit button */}
         <button 
