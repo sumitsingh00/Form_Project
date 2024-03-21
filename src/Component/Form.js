@@ -33,8 +33,11 @@ export default function Form() {
     function submitHandler(event){
         // submit hone pe bhi data avilabe rhega from me
         event.preventDefault();
+        // reRednring hone se bachane ke liye kia
         console.log(formData);
 
+
+        // using of alert in react
         let data = Object.keys(formData).map((key) => `${key} = ${formData[key]}`);
         // join() returns an array as a string
         data = data.join(" \n");
