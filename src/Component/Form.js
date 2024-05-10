@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 export default function Form() {
 
+
+    // objects create kia hai saare variables ka
     const [formData, setFormData] = useState({
         firstName : "",
         lastName : "",
@@ -20,12 +22,12 @@ export default function Form() {
 
     function inputChangeHandler(event){
         const {name, type, value, checked} = event.target;// event.target se uska name , type value , checked le liya
-
+        // console.log(event.target.value);// yhe console me changes print krega
         setFormData(prevState => {
             return({
-                // previous state ke rkhte hue new data copy krte hai
+                // previous state ke rkhte hue new data ko update krte hai
                 ...prevState,
-                [name] : type === 'checkbox' ? checked : value// agr type == checkbox hai tho check (true/false) nhi tho value ka data 
+                [name] : type === 'checkbox' ? checked : value// agr type == checkbox hai tho check (true/false) nhi tho value ka data update ho jaaye ga
             })
         });
     }
@@ -83,6 +85,7 @@ export default function Form() {
                         />
                 </div>
                 <div>
+                    {/* htmlfor attach krta hai variable ko lable se */}
                     <label htmlFor="candidates" className='font-medium text-sm'>Candidates</label>
                     <p className='text-sm text-gray-500'>Get notified when a candidate applies for a job.</p>
                 </div>
