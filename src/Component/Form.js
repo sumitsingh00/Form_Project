@@ -86,6 +86,7 @@ export default function Form() {
                 </div>
                 <div>
                     {/* htmlfor attach krta hai variable ko lable se */}
+                    {/* even uss text pe bhi click krge tho click ho jaaye ga */}
                     <label htmlFor="candidates" className='font-medium text-sm'>Candidates</label>
                     <p className='text-sm text-gray-500'>Get notified when a candidate applies for a job.</p>
                 </div>
